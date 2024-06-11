@@ -25,7 +25,7 @@ function Signup() {
             let headers = new Headers()
             headers.append('Content-Type', 'application/json');
             headers.append('Accept', 'application/json');
-            fetch('http://127.0.0.1:8000/mainwork/UserSignupView/',
+            fetch('https://vineyarora.pythonanywhere.com/mainwork/UserSignupView/',
                 {
                     method: "POST",
                     headers: headers,
