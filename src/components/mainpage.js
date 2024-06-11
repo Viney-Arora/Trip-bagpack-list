@@ -39,7 +39,7 @@ function Mainpage() {
         headers.append('Accept', 'application/json');
         let userPk = localStorage.getItem("userPk")
         fetch(
-            "http://127.0.0.1:8000/mainwork/create/",
+            "https://vineyarora.pythonanywhere.com/mainwork/create/",
             {
                 headers: headers,
                 method: 'POST',
@@ -81,7 +81,7 @@ function Mainpage() {
     // Truncate Api
     function deleteAllCheckboxes() {
 
-        fetch(`http://127.0.0.1:8000/mainwork/TruncateData/?userId=${userPk}`, {
+        fetch(`https://vineyarora.pythonanywhere.com/mainwork/TruncateData/?userId=${userPk}`, {
             method: 'DELETE'
         })
             .then((data) => setListView(1))
@@ -100,7 +100,7 @@ function Mainpage() {
         headers.append('Content-Type', 'application/json');
         headers.append('Accept', 'application/json');
 
-        fetch(`http://127.0.0.1:8000/mainwork/update/${id}/`,
+        fetch(`https://vineyarora.pythonanywhere.com/mainwork/update/${id}/`,
             {
                 method: "PUT",
                 headers: headers,
@@ -119,7 +119,7 @@ function Mainpage() {
     //Delete Api
     function onDelete(e) {
         let id = e.target.id
-        fetch(`http://127.0.0.1:8000/mainwork/delete/${id}`, {
+        fetch(`https://vineyarora.pythonanywhere.com/mainwork/delete/${id}`, {
             method: "DELETE"
         }
         )
@@ -146,7 +146,7 @@ function Mainpage() {
         let userPk = localStorage.getItem("userPk")
 
         if (listView === 1 || (sortType === 0 || 1 || 2 || 3 || 4)) {
-            fetch(`http://127.0.0.1:8000/mainwork/listView/?userId=${userPk}`)
+            fetch(`https://vineyarora.pythonanywhere.com/mainwork/listView/?userId=${userPk}`)
                 .then((res) => res.json())
                 .then((data) => {
                     sortedArr = data.slice()
