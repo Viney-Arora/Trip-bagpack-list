@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Mainpage() {
-    let apiBaseUrl="https://vineyarora.pythonanywhere.com"
+    let apiBaseUrl = "https://vineyarora.pythonanywhere.com"
     const [itemName, setItemName] = useState('');
     const [itemQty, setItemQty] = useState(1);
     const [itemPacked, setItemPacked] = useState(0);
@@ -16,7 +16,7 @@ function Mainpage() {
 
     // navigate to signin if username is not present
     useEffect(function () {
-        let username = localStorage.getItem("username")        
+        let username = localStorage.getItem("username")
         if (username === null) {
             navigate("/signin")
         }
@@ -157,7 +157,7 @@ function Mainpage() {
                             return a.itemQty - b.itemQty;
                         });
                     } else if (sortType === 2) {
-                          sortedArr.sort((a, b) => {
+                        sortedArr.sort((a, b) => {
                             return b.itemQty - a.itemQty;
                         });
                     }
@@ -225,44 +225,42 @@ function Mainpage() {
 
     return (
         <>
-            <div className="heading d-flex gap-3 justify-content-center py-4">
+            <div className="heading d-flex gap-3 justify-content-center lg-justify-content-center sm-justify-content-center py-4">
                 <span className="badge text-bg-primary rounded-pill col-8"><h1>💼 FAR AWAY 🏖️</h1></span>
-                <span className="py-2"><button className="btn btn-info mb-2" onClick={logout}>Logout</button>
+                <span className="py-2 pl-5 sm-pl-2 lg-pl-2"><button className="btn btn-info mb-2" onClick={logout}>Logout</button>
                 </span>
             </div>
             <div className="subheading text-white d-flex gap-3 justify-content-center py-3">
-
-                <form className="form-inline">
-                    <div className="form-group mb-2">
+                <form className="form-inline justify-content-center">
+                    <div className="form-group mb-2 md-ml-2 lg-justify-content-center">
                         <h3>What do you need for your😍 trip?</h3>
                     </div>
+                    <div className="input form-group ">
+                        <div className="form-group mx-sm-3 mb-2 ">
+                            <label htmlFor="quantity" className="sr-only">Quantity</label>
+                            <input type="number" onChange={onChangeQty} value={itemQty} className="form-control" id="quantity" placeholder="Quantity" />
+                        </div>
+                        <div className="form-group mx-sm-3 mb-2 ">
+                            <label htmlFor="itemName" className="sr-only">itemName</label>
+                            <input type="text" className="form-control" onChange={onChangeItemName} id="itemName" placeholder="Item Name.." />
+                        </div>
+                        <div className="form-group mx-sm-3 mb-2 ">
+                            <button onClick={onAdd} className="btn btn-info mb-2">ADD ITEM</button>
 
-                    <div className="form-group mx-sm-3 mb-2">
-                        <label htmlFor="quantity" className="sr-only">Quantity</label>
-                        <input type="number" onChange={onChangeQty} value={itemQty} className="form-control" id="quantity" placeholder="Quantity" />
-                    </div>
-                    <div className="form-group mx-sm-3 mb-2">
-                        <label htmlFor="itemName" className="sr-only">itemName</label>
-                        <input type="text" className="form-control" onChange={onChangeItemName} id="itemName" placeholder="Item Name.." />
-                    </div>
-                    <div className="form-group mx-sm-3 mb-2">
-                        <button onClick={onAdd} className="btn btn-info mb-2">ADD ITEM</button>
-
+                        </div>
                     </div>
                 </form>
             </div>
             <div className='checkBoxShow'>
 
                 {itemCheckBoxArr}
-
             </div>
 
-            <footer className="bg-body-tertiary justify-content-center ">
-                <div className="d-flex gap-5 justify-content-center py-3">
+            <footer className="bg-body-tertiary">
 
-                    <div className='sortAndClearbtn text-white w-25'>
-
-                        <select className='sortSelection inputAndBtnDesign justify-content-center text-white' onChange={sortMethod} id="filter">
+                <div className="d-flex gap-2 justify-content-center py-3">
+                    <div className='sortAndClearbtn text-white sm-w-100 md-w-25'>
+                        <select className='sortSelection inputAndBtnDesign text-white w-50' onChange={sortMethod} id="filter">
                             <option value="SORT BY ENTER DATA" defaultValue>SORT BY ENTER DATA</option>
                             <option value="SORT BY QTY ASC ORDER">SORT BY QTY ASC ORDER</option>
                             <option value="SORT BY QTY DEC ORDER">SORT BY QTY DEC ORDER</option>
@@ -270,8 +268,7 @@ function Mainpage() {
                             <option value="SORT BY NAME DEC ORDER">SORT BY NAME DEC ORDER</option>
 
                         </select>
-                        {/* <button onClick={deleteAllCheckboxes} id="1" className='clearListBtn inputAndBtnDesign '>CLEAR LIST</button> */}
-                    <button onClick={deleteAllCheckboxes} id="1" className='btn text-white justify-content-center color '>CLEAR LIST</button>
+                        <button onClick={deleteAllCheckboxes} id="1" className='btn text-white justify-content-center color w-50'>CLEAR LIST</button>
 
                     </div>
 
