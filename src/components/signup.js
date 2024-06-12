@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
 
 function Signup() {
+    let apiBaseUrl="https://vineyarora.pythonanywhere.com"
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -25,7 +26,7 @@ function Signup() {
             let headers = new Headers()
             headers.append('Content-Type', 'application/json');
             headers.append('Accept', 'application/json');
-            fetch('https://vineyarora.pythonanywhere.com/mainwork/UserSignupView/',
+            fetch(`${apiBaseUrl}/mainwork/UserSignupView/`,
                 {
                     method: "POST",
                     headers: headers,

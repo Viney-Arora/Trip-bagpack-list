@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 function Signin() {
+    let apiBaseUrl="https://vineyarora.pythonanywhere.com"
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
@@ -27,7 +28,7 @@ function Signin() {
         }
         else {
 
-            fetch('https://vineyarora.pythonanywhere.com/mainwork/UserSigninView/', {
+            fetch(`${apiBaseUrl}/mainwork/UserSigninView/`, {
                 method: 'POST',
                 headers: headers,
                 body: JSON.stringify({
