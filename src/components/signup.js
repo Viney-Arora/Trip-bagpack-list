@@ -46,7 +46,7 @@ function Signup() {
     return (
         <>
             <div className="form-signup col-8 col-lg-3 col-sm-5 ">
-                <img className="mb-4" src="/static/images/loginLogo.png" alt="" width="100" height="100" />
+                <img className="mb-4" src="/static/images/loginLogo.png" alt="" width="110" height="100" />
                 <h1 className="h1 mb-3 ">Sign Up</h1>
 
                 <div className="form-floating">

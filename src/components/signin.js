@@ -44,17 +44,21 @@ function Signin() {
                         navigate("/")
                     }
                 })
-                .catch((err) => console.log(err))
+                .catch((err) => {
+                    if (err) {
+                        alert("CREDENTIAL ERROR! Please Check Your Credential..")
+                        console.log(err)
+                    }
+                })
         }
     }
-
     return (
         <>
             <div className="both">
 
                 <div className="form-signin col-8 col-lg-3 col-sm-5 ">
 
-                    <img className="mb-4" src="/static/images/loginLogo.png" alt="" width="100" height="100" />
+                    <img className="mb-4" src="/static/images/loginLogo.png" alt="" width="110" height="100" />
                     <h1 className="h1 mb-3 ">Sign In</h1>
 
                     <div className="form-floating">
